@@ -1,0 +1,48 @@
+MCS-96 MACRO ASSEMBLER    lab12                                                              03/17/99 18:32:54 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab12.asm
+OBJECT FILE: lab12.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;X96 LAB12.ASM (C) Joonas Viskari 1998
+                              2   
+0023                          3           RSEG AT 23h
+                              4   
+0023                          5   SRC:    DSB 1
+                              6   
+0066                          7           RSEG AT 66h
+                              8   
+0066                          9   DST1L:  DSB 1
+0067                         10   DST1H:  DSB 1
+0068                         11   DST2L:  DSB 1
+0069                         12   DST2H:  DSB 1
+                             13   
+                             14          
+                             15           
+                             16           
+9000                         17           CSEG AT 9000h           ;Ohjelmaa alkaa osoitteesta 9000h
+                             18           
+9000 742366                  19           ADDB     DST1L,SRC      ;lis„t„„n rekisteriin 66h 23h      
+9003 B40067                  20           ADDCB    DST1H,0        ;Otetaan Carry huomioon
+                             21   
+9006 742368                  22           ADDB     DST2L,SRC      ;lis„t„„n rekisteriin 68h 23h       
+9009 B40069                  23           ADDCB    DST2H,0        ;otetaan Carry huomioon
+900C 27FE                    24           SJMP     $              ;hallittu lopetus
+900E                         25           END
+MCS-96 MACRO ASSEMBLER    lab12                                                              03/17/99 18:32:54 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+DST1H . . . . . . . . . . . . .   0067H   REG ABS BYTE
+DST1L . . . . . . . . . . . . .   0066H   REG ABS BYTE
+DST2H . . . . . . . . . . . . .   0069H   REG ABS BYTE
+DST2L . . . . . . . . . . . . .   0068H   REG ABS BYTE
+SRC . . . . . . . . . . . . . .   0023H   REG ABS BYTE
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

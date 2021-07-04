@@ -1,0 +1,825 @@
+;===List file opened on 02/16/1993 at 10:09:12 
+*list a:up3
+;---LIST FILE IS ALREADY OPEN
+*;   Reset the target system ?   (y/n);   Exit to DOS ?   (y/n)
+*list a:up3
+;---LIST FILE IS ALREADY OPEN
+*load a:up3
+;
+;   mod name is: |PRISMOBJ|
+;   mod date stamp is:  
+*word 40
+;   0040H: 0001 ==> 60
+*word 40
+;   0040H: 0060 ==> 
+*word 80
+;   0080H: FF30 ==> 0e
+*go from 9000 till 900f
+>dasm 60,10
+; 0060: FF              |    RST
+; 0061: FF              |    RST
+; 0062: FF              |    RST
+; 0063: FF              |    RST
+; 0064: FF              |    RST
+; 0065: FF              |    RST
+; 0066: FF              |    RST
+; 0067: FF              |    RST
+; 0068: FF              |    RST
+; 0069: FF              |    RST
+; 006A: FF              |    RST
+; 006B: FF              |    RST
+; 006C: FF              |    RST
+; 006D: FF              |    RST
+; 006E: FF              |    RST
+; 006F: FF              |    RST
+>
+>
+>
+>
+>
+>
+>;   Reset the target system ?   (y/n);   Exit to DOS ?   (y/n)*DASM 9000,13
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24150          |    LD      50,[40]+
+; 9007: 4501005040      |    ADD     40,50,#0001
+; 900C: E080F1          |    DJNZ    80,9000
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+*ASM 900F
+;   Single Line Assembler activated, exit with "end" directive
+; 900FH: END
+*DASM 9000
+; 9000: A10E0080        |    LD      80,#000E
+*DASM 9000,16
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24150          |    LD      50,[40]+
+; 9007: 4501005040      |    ADD     40,50,#0001
+; 900C: E080F1          |    DJNZ    80,9000
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+*DASM 9000,13
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24150          |    LD      50,[40]+
+; 9007: 4501005040      |    ADD     40,50,#0001
+; 900C: E080F1          |    DJNZ    80,9000
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+*ASM 9004
+;   Single Line Assembler activated, exit with "end" directive
+; 9004H: LD 50,[40]+
+; 9007H: ADD 40,50,#0001
+; 900CH: DJNZ 80,9004
+; 900FH: END
+*GO FROM 9000
+*DASM 60,10
+; 0060: FF              |    RST
+; 0061: FF              |    RST
+; 0062: FF              |    RST
+; 0063: FF              |    RST
+; 0064: FF              |    RST
+; 0065: FF              |    RST
+; 0066: FF              |    RST
+; 0067: FF              |    RST
+; 0068: FF              |    RST
+; 0069: FF              |    RST
+; 006A: FF              |    RST
+; 006B: FF              |    RST
+; 006C: FF              |    RST
+; 006D: FF              |    RST
+; 006E: FF              |    RST
+; 006F: FF              |    RST
+*DASM 50
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+; 9027: FF              |    RST
+; 9028: FF              |    RST
+; 9029: FF              |    RST
+; 902A: FF              |    RST
+; 902B: FF              |    RST
+; 902C: FF              |    RST
+; 902D: FF              |    RST
+; 902E: FF              |    RST
+; 902F: FF              |    RST
+; 9030: FF              |    RST
+; 9031: FF              |    RST
+; 9032: FEFF            |    Invalid opcode
+*DASM 50
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+; 9027: FF              |    RST
+; 9028: FF              |    RST
+; 9029: FF              |    RST
+; 902A: FF              |    RST
+; 902B: FF              |    RST
+; 902C: FF              |    RST
+; 902D: FF              |    RST
+; 902E: FF              |    RST
+; 902F: FF              |    RST
+; 9030: FF              |    RST
+; 9031: FF              |    RST
+; 9032: FEFF            |    Invalid opcode
+*DASM 50,10
+; 0050: 0000            |    SKIP    00
+; 0052: FF              |    RST
+; 0053: FF              |    RST
+; 0054: FF              |    RST
+; 0055: FF              |    RST
+; 0056: FF              |    RST
+; 0057: FF              |    RST
+; 0058: FF              |    RST
+; 0059: FF              |    RST
+; 005A: FF              |    RST
+; 005B: FF              |    RST
+; 005C: FF              |    RST
+; 005D: FF              |    RST
+; 005E: FF              |    RST
+; 005F: FF              |    RST
+; 0060: FF              |    RST
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24150          |    LD      50,[40]+
+; 9007: 4501005040      |    ADD     40,50,#0001
+; 900C: E080F5          |    DJNZ    80,9004
+; 900F: F7              |    TRAP
+; 9010: FF              |    RST
+; 9011: FF              |    RST
+; 9012: FF              |    RST
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#0E
+; 9004H: LD 50,60
+; 9007H: END
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#0E
+; 9004H: LD 50,60
+; 9007H: END
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#0E
+; 9004H: LD 50,[40]
+; 9007H: ADD 50,01
+;---Invalid parameter in assembler input
+; 9007H: ADD 50,#01
+; 900BH: ST 50,[40]
+; 900EH: INC 40
+; 9010H: DJNZ 80,9004
+; 9013H: END
+*SAVE 9000 TO 9013 A:UP3
+;---INVALID SYNTAX FOR SAVE COMMAND
+*SAVE 9000 TO 9014 IN A:UP3
+*GO FROM 9000
+;---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);    Waiting for about 5 seconds....
+ 
+Compiler and Run-time libraries from:
+Microsoft (R) C Optimizing Compiler Version 5.00
+Copyright (c) Microsoft Corp. 1984-1987. All rights reserved.
+ 
+iECM-96 was written and is supported by ECO Applications Engineering.
+Intel Corp. Chandler, Arizona.
+ 
+Intel claims no copyright on the executable version of iECM-96.
+Please place Microsoft's copyright notice on all copies.
+ 
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: 07F7            |    INC     0F7
+; 9010: E080F1          |    DJNZ    80,9004
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+*ASM 9013
+;   Single Line Assembler activated, exit with "end" directive
+; 9013H: END
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: 07F7            |    INC     0F7
+; 9010: E080F1          |    DJNZ    80,9004
+; 9013: DFBF            |    JE      8FD4
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+*ASM 9013
+;   Single Line Assembler activated, exit with "end" directive
+; 9013H: JMP 9013
+;---Invalid assembler syntax
+; 9013H: DJNZ 9013
+;---Invalid assembler syntax
+; 9013H: JNE 9013
+; 9015H: END
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: 07F7            |    INC     0F7
+; 9010: E080F1          |    DJNZ    80,9004
+; 9013: D7FE            |    JNE     9013
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+*GO FROM 9000 TILL 9013
+*DASM 60,10
+; 0060: FF              |    RST
+; 0061: FF              |    RST
+; 0062: FF              |    RST
+; 0063: FF              |    RST
+; 0064: FF              |    RST
+; 0065: FF              |    RST
+; 0066: FF              |    RST
+; 0067: FF              |    RST
+; 0068: FF              |    RST
+; 0069: FF              |    RST
+; 006A: FF              |    RST
+; 006B: FF              |    RST
+; 006C: FF              |    RST
+; 006D: FF              |    RST
+; 006E: FF              |    RST
+; 006F: FF              |    RST
+*DASM 40,10
+; 0040: 0100            |    CLR     00
+; 0042: FF              |    RST
+; 0043: FF              |    RST
+; 0044: FF              |    RST
+; 0045: FF              |    RST
+; 0046: FF              |    RST
+; 0047: FF              |    RST
+; 0048: FF              |    RST
+; 0049: FF              |    RST
+; 004A: FF              |    RST
+; 004B: FF              |    RST
+; 004C: FF              |    RST
+; 004D: FF              |    RST
+; 004E: FF              |    RST
+; 004F: FF              |    RST
+; 0050: 0100            |    CLR     00
+*DASM 50,10
+; 0050: 0100            |    CLR     00
+; 0052: FF              |    RST
+; 0053: FF              |    RST
+; 0054: FF              |    RST
+; 0055: FF              |    RST
+; 0056: FF              |    RST
+; 0057: FF              |    RST
+; 0058: FF              |    RST
+; 0059: FF              |    RST
+; 005A: FF              |    RST
+; 005B: FF              |    RST
+; 005C: FF              |    RST
+; 005D: FF              |    RST
+; 005E: FF              |    RST
+; 005F: FF              |    RST
+; 0060: FF              |    RST
+*WORD 60
+;   0060H: FFFF ==> 1234
+*WORD 64
+;   0064H: FFFF ==> 1234
+*LONGWORD 68
+*WORD 68
+;   0068H: FFFF ==> 1234
+*DASM 60,10
+; 0060: 3412FF          |    JBC     12,04,0062
+; 0063: FF              |    RST
+; 0064: 3412FF          |    JBC     12,04,0066
+; 0067: FF              |    RST
+; 0068: 3412FF          |    JBC     12,04,006A
+; 006B: FF              |    RST
+; 006C: FF              |    RST
+; 006D: FF              |    RST
+; 006E: FF              |    RST
+; 006F: FF              |    RST
+; 0070: FF              |    RST
+; 0071: FF              |    RST
+; 0072: FF              |    RST
+; 0073: FF              |    RST
+; 0074: FF              |    RST
+; 0075: FF              |    RST
+*WORD 62
+;   0062H: FFFF ==> 1234
+*WORD 66
+;   0066H: FFFF ==> 1234
+*WORD 68
+;   0068H: 1234 ==> 
+*WORD 70
+;   0070H: FFFF ==> 1234
+*GO FROM 9000 TILL 9013
+*DASM 60,10
+; 0060: 341234          |    JBC     12,04,0097
+; 0063: 1234            |    NOTB    34
+; 0065: 1234            |    NOTB    34
+; 0067: 1234            |    NOTB    34
+; 0069: 12FF            |    NOTB    0FF
+; 006B: FF              |    RST
+; 006C: FF              |    RST
+; 006D: FF              |    RST
+; 006E: FF              |    RST
+; 006F: FF              |    RST
+; 0070: 3412FF          |    JBC     12,04,0072
+; 0073: FF              |    RST
+; 0074: FF              |    RST
+; 0075: FF              |    RST
+; 0076: FF              |    RST
+; 0077: FF              |    RST
+*BYTE 60,10
+*DASM 9000,13
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: 07F7            |    INC     0F7
+; 9010: E080F1          |    DJNZ    80,9004
+; 9013: D7FE            |    JNE     9013
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+*WORD 40
+;   0040H: 0001 ==> 60
+*GO FROM 9000 TILL 9013
+*DASM 40
+; 9013: D7FE            |    JNE     9013
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+; 9027: FF              |    RST
+; 9028: FF              |    RST
+; 9029: FF              |    RST
+; 902A: FF              |    RST
+; 902B: FF              |    RST
+; 902C: FF              |    RST
+; 902D: FF              |    RST
+; 902E: FF              |    RST
+; 902F: FF              |    RST
+; 9030: FF              |    RST
+; 9031: FF              |    RST
+; 9032: FEFF            |    Invalid opcode
+*DASM 40,2
+; 0040: 6000FF          |    AND     0FF,00
+; 0043: FF              |    RST
+*DASM 60,3
+; 0060: 42123412        |    AND     12,34,[12]
+; 0064: 341234          |    JBC     12,04,009B
+; 0067: 1234            |    NOTB    34
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: 07F7            |    INC     0F7
+; 9010: E080F1          |    DJNZ    80,9004
+; 9013: D7FE            |    JNE     9013
+; 9015: FF              |    RST
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+*ASM 900E
+;   Single Line Assembler activated, exit with "end" directive
+; 900EH: ADD [40],00 +
+;---Invalid assembler syntax
+; 900EH: ADD [40],#0+
+;---Invalid assembler syntax
+; 900EH: LD 70,[40]+
+; 9011H: DJNZ 80,9004
+; 9014H: JNE 9014
+; 9016H: END
+*GO FROM 9000 TILL 9014
+*DASM 60,3
+; 0060: 4312351235      |    AND     35,12,35[12]
+; 0065: 1235            |    NOTB    35
+; 0067: 1235            |    NOTB    35
+*DASM 60,10
+; 0060: 4312351235      |    AND     35,12,35[12]
+; 0065: 1235            |    NOTB    35
+; 0067: 1235            |    NOTB    35
+; 0069: 1200            |    NOTB    00
+; 006B: 0000            |    SKIP    00
+; 006D: 0000            |    SKIP    00
+; 006F: 0000            |    SKIP    00
+; 0071: 0000            |    SKIP    00
+; 0073: 0000            |    SKIP    00
+; 0075: 0000            |    SKIP    00
+; 0077: 0000            |    SKIP    00
+; 0079: 0000            |    SKIP    00
+; 007B: 00FF            |    SKIP    0FF
+; 007D: FF              |    RST
+; 007E: FF              |    RST
+; 007F: FF              |    RST
+*WORD 60
+;   0060H: 1243 ==> 0001
+*WORD 62
+;   0062H: 1235 ==> 0102
+*WORD 64
+;   0064H: 1235 ==> 0202
+*WORD 66
+;   0066H: 1235 ==> 1234
+*WORD 68
+;   0068H: 1235 ==> 4321
+*GO FROM 9000 TILL 9014
+*DASM 60,10
+; 0060: 0100            |    CLR     00
+; 0062: 0201            |    NOT     01
+; 0064: 0202            |    NOT     02
+; 0066: 341221          |    JBC     12,04,008A
+; 0069: 4300000000      |    AND     00,00,00[00]
+; 006E: 0000            |    SKIP    00
+; 0070: 0000            |    SKIP    00
+; 0072: 0000            |    SKIP    00
+; 0074: 0000            |    SKIP    00
+; 0076: 0000            |    SKIP    00
+; 0078: 0000            |    SKIP    00
+; 007A: 0000            |    SKIP    00
+; 007C: 0000            |    SKIP    00
+; 007E: 0000            |    SKIP    00
+; 0080: 0000            |    SKIP    00
+; 0082: 0000            |    SKIP    00
+*GO FROM 9000 TILL 9014
+*DASM 60,10
+; 0060: 0100            |    CLR     00
+; 0062: 0201            |    NOT     01
+; 0064: 0202            |    NOT     02
+*
+*DASM 60,10
+; 0060: 0100            |    CLR     00
+; 0062: 0201            |    NOT     01
+; 0064: 0202            |    NOT     02
+; 0066: 341221          |    JBC     12,04,008A
+; 0069: 4300000000      |    AND     00,00,00[00]
+; 006E: 0000            |    SKIP    00
+; 0070: 0000            |    SKIP    00
+; 0072: 0000            |    SKIP    00
+; 0074: 0000            |    SKIP    00
+; 0076: 0000            |    SKIP    00
+; 0078: 0000            |    SKIP    00
+; 007A: 0000            |    SKIP    00
+; 007C: 0000            |    SKIP    00
+; 007E: 0000            |    SKIP    00
+; 0080: 0000            |    SKIP    00
+; 0082: 0000            |    SKIP    00
+*DSAM 9000
+*DASM 9000
+; 9000: A10E0080        |    LD      80,#000E
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: A24170          |    LD      70,[40]+
+; 9011: E080F0          |    DJNZ    80,9004
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+*SAVE 9000 T0 9014 IN A:UP3
+;---INVALID SYNTAX FOR SAVE COMMAND
+*SAVE 9000 TO 9014 IN A:UP3
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#000E
+; 9004H: LD 60,#0001
+; 9008H: INC 60
+; 900AH: DJNZ 80,9004
+; 900DH: END
+*LOAD A:UP3
+;
+;   mod name is: |PRISMOBJ|
+;   mod date stamp is:  
+*DASM 9000
+; 9000: A10E0080        |    LD      80,#000E
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: A24170          |    LD      70,[40]+
+; 9011: E080F0          |    DJNZ    80,9004
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#0E
+; 9004H: LD 50,[40]
+; 9007H: END
+*DASM 40,3
+; 0040: B600FF          |    ADDCB   0FF,[00]
+; 0043: FF              |    RST
+; 0044: FF              |    RST
+*WORD 40
+;   0040H: 00B6 ==> ;---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);   Exit to DOS ?   (y/n)
+*LOAD A:UP3
+;
+;   mod name is: |PRISMOBJ|
+;   mod date stamp is:  
+*DASM 9000,13
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: A24170          |    LD      70,[40]+
+; 9011: E080F0          |    DJNZ    80,9004
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+*WORD 40
+;   0040H: 00B6 ==> 60
+*WORD 80
+;   0080H: 0000 ==> 0E
+*DASM 60,10
+; 0060: 0100            |    CLR     00
+; 0062: 0201            |    NOT     01
+; 0064: 0202            |    NOT     02
+; 0066: 341221          |    JBC     12,04,008A
+; 0069: 4300000000      |    AND     00,00,00[00]
+; 006E: 0000            |    SKIP    00
+; 0070: 0000            |    SKIP    00
+; 0072: 0000            |    SKIP    00
+; 0074: 0000            |    SKIP    00
+; 0076: 0000            |    SKIP    00
+; 0078: 0000            |    SKIP    00
+; 007A: 0000            |    SKIP    00
+; 007C: 0000            |    SKIP    00
+; 007E: 0000            |    SKIP    00
+; 0080: 0E0000          |    SHRAL   00,#00
+; 0083: 0000            |    SKIP    00
+*GO FROM 9000 TILL 9014
+*DASM 60
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+; 9027: FF              |    RST
+; 9028: FF              |    RST
+; 9029: FF              |    RST
+; 902A: FF              |    RST
+; 902B: FF              |    RST
+; 902C: FF              |    RST
+; 902D: FF              |    RST
+; 902E: FF              |    RST
+; 902F: FF              |    RST
+; 9030: FF              |    RST
+; 9031: FF              |    RST
+; 9032: FEFF            |    Invalid opcode
+*DASM 60,13
+; 0060: 0200            |    NOT     00
+; 0062: 0301            |    NEG     01
+; 0064: 0302            |    NEG     02
+; 0066: 351222          |    JBC     12,05,008B
+; 0069: 430100010001    |    AND     01,00,0100[00]
+; 006F: 0001            |    SKIP    01
+; 0071: 0001            |    SKIP    01
+; 0073: 0001            |    SKIP    01
+; 0075: 0001            |    SKIP    01
+; 0077: 0001            |    SKIP    01
+; 0079: 0001            |    SKIP    01
+; 007B: 0000            |    SKIP    00
+; 007D: 0000            |    SKIP    00
+; 007F: 0000            |    SKIP    00
+; 0081: 0000            |    SKIP    00
+; 0083: 0000            |    SKIP    00
+; 0085: 0000            |    SKIP    00
+; 0087: 0000            |    SKIP    00
+; 0089: 0000            |    SKIP    00
+*DASM 40
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+; 9027: FF              |    RST
+; 9028: FF              |    RST
+; 9029: FF              |    RST
+; 902A: FF              |    RST
+; 902B: FF              |    RST
+; 902C: FF              |    RST
+; 902D: FF              |    RST
+; 902E: FF              |    RST
+; 902F: FF              |    RST
+; 9030: FF              |    RST
+; 9031: FF              |    RST
+; 9032: FEFF            |    Invalid opcode
+*DASM 40,2
+; 0040: 7C00FF          |    MULUB   0FF,00
+; 0043: FF              |    RST
+*DASM 9000,13
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 65010050        |    ADD     50,#0001
+; 900B: C24050          |    ST      50,[40]
+; 900E: A24170          |    LD      70,[40]+
+; 9011: E080F0          |    DJNZ    80,9004
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+; 9024: FF              |    RST
+; 9025: FF              |    RST
+; 9026: FF              |    RST
+*ASM 9007
+;   Single Line Assembler activated, exit with "end" directive
+; 9007H: ADD 50,[30]
+; 900AH: END
+*DASM 9000,10
+; 9000: A10E0080        |    LD      80,#000E
+; 9004: A24050          |    LD      50,[40]
+; 9007: 663050          |    ADD     50,[30]
+; 900A: 50C24050        |    ANDB    50,40,0C2
+; 900E: A24170          |    LD      70,[40]+
+; 9011: E080F0          |    DJNZ    80,9004
+; 9014: D7FE            |    JNE     9014
+; 9016: 7FFFFFFBFB      |    MULUB   0FB,0FBFF[0FE]
+; 901B: FF              |    RST
+; 901C: F7              |    TRAP
+; 901D: DFFF            |    JE      901E
+; 901F: FF              |    RST
+; 9020: FF              |    RST
+; 9021: FF              |    RST
+; 9022: FF              |    RST
+; 9023: FF              |    RST
+*ASM 9000
+;   Single Line Assembler activated, exit with "end" directive
+; 9000H: LD 80,#0E
+; 9004H: ;---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);    Waiting for about 5 seconds....
+;---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);    Waiting for about 5 seconds....
+;---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);   Exit to DOS ?   (y/n);---TRANSACTION: time out occurred waiting for response
+;   Reset the target system ?   (y/n);   Exit to DOS ?   (y/n)

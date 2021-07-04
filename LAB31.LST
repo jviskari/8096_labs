@@ -1,0 +1,37 @@
+MCS-96 MACRO ASSEMBLER    lab31                                                              12/11/98 11:30:06 PAGE    1
+
+DOS 6.22 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab31.asm
+OBJECT FILE: lab31.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+  0016                        1   IOC1            EQU 16H:BYTE
+  0017                        2   PWMC            EQU 17H:BYTE
+                              3   
+0040                          4                   RSEG AT 40H
+                              5   
+0040                          6   PWM_VALUE:      DSB 1
+                              7                   
+                              8                                   
+                              9   
+9000                         10                   CSEG AT 9000H
+                             11   
+9000 A1210016                12                   LD      IOC1,#21h
+9004 B04017                  13   LOOP:           LDB     PWMC,PWM_VALUE
+9007 27FB                    14                   SJMP    LOOP
+9009                         15                   END
+MCS-96 MACRO ASSEMBLER    lab31                                                              12/11/98 11:30:06 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+IOC1. . . . . . . . . . . . . .   0016H   NULL ABS BYTE
+LOOP. . . . . . . . . . . . . .   9004H   CODE ABS ENTRY
+PWM_VALUE . . . . . . . . . . .   0040H   REG ABS BYTE
+PWMC. . . . . . . . . . . . . .   0017H   NULL ABS BYTE
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

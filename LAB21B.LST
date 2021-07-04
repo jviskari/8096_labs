@@ -1,0 +1,137 @@
+MCS-96 MACRO ASSEMBLER    LAB21B                                                             11/20/98 11:46:06 PAGE    1
+
+DOS 6.22 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: LAB21B.asm
+OBJECT FILE: LAB21B.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+  0004                        1   HSO_TIME        EQU 04H:WORD
+  0006                        2   HSO_COM         EQU 06H:BYTE
+  0008                        3   INT_MASK        EQU 08H:BYTE
+  000A                        4   TIMER1          EQU 0AH:WORD
+                              5   
+  F000                        6   VALINTA         EQU 0F000H:BYTE
+  F800                        7   SEGMENT         EQU 0F800H:BYTE
+                              8   
+0040                          9                   RSEG AT 40H
+0040                         10   MERKKI:         DSB 3
+0043                         11   LEDNRO:         DSB 1
+                             12   
+0044                         13                   RSEG AT 44H
+0044                         14   INDEX:          DSW 1
+0046                         15   INDEX2:         DSW 1
+0048                         16   DELAY:          DSW 1
+004A                         17   SUBINDEX:       DSW 1
+004C                         18   ARVO:           DSB 1
+004D                         19   TV:             DSB 1
+                             20   
+8500                         21                   CSEG AT 8500H
+                             22   
+8500 F2                      23   SWINT:          PUSHF
+8501 B13806                  24                   LDB HSO_COM, #00111000B
+8504 44480A04                25                   ADD HSO_TIME,TIMER1,DELAY
+8508 B34535854C              26                   LDB ARVO,NAYTTONO[INDEX]
+                             27                   ;TŽHŽN BITTIEN RUUVAUS
+                             28                   
+850D 700F43                  29                   ANDB LEDNRO,0FH             ;MASKATAAN 4 YLINTŽ BITTIŽ
+8510 C70100F04C              30                   STB ARVO,VALINTA[0]
+8515 AF44404A                31                   LDBZE SUBINDEX, MERKKI[INDEX]
+8519 B34B38854C              32                   LDB ARVO,SEGM[SUBINDEX]
+851E 974448854C              33                   XORB ARVO,LED[LEDNRO]
+*** ERROR #49 IN STMT 33 (LINE 33), ALIGNMENT ERROR
+8523 C70100F84C              34                   STB ARVO,SEGMENT[0]
+8528 0744                    35                   INC INDEX
+852A 89030044                36                   CMP INDEX, #3
+852E D703                    37                   JNE VALMIS
+8530 A00044                  38                   LD INDEX,0
+8533 F3                      39   VALMIS:         POPF
+8534 F0                      40                   RET
+                             41   
+8535 DFBF7F                  42   NAYTTONO:       DCB 11011111b, 10111111B, 01111111B
+                             43   
+                             44   
+8538 3F                      45   SEGM:       DCB 00111111B               ;0
+8539 06                      46               DCB 00000110B               ;1
+853A 5B                      47               DCB 01011011B               ;2
+853B 4F                      48               DCB 01001111B               ;3
+853C 66                      49               DCB 01100110B               ;4
+853D 6D                      50               DCB 01101101B               ;5
+MCS-96 MACRO ASSEMBLER    LAB21B                                                             11/20/98 11:46:06 PAGE    2
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+853E 7D                      51               DCB 01111101B               ;6
+853F 07                      52               DCB 00000111B               ;7
+8540 7F                      53               DCB 01111111B               ;8
+8541 6F                      54               DCB 01101111B               ;9
+8542 77                      55               DCB 01110111B               ;A
+8543 7C                      56               DCB 01111100B               ;B
+8544 39                      57               DCB 00111001B               ;C
+8545 5E                      58               DCB 01011110B               ;D
+8546 79                      59               DCB 01111001B               ;E
+8547 71                      60               DCB 01110001B               ;F
+                             61   
+8548 0F                      62   LED:        DCB 00001111B               ;0
+8549 07                      63               DCB 00000111B               ;1
+854A 0B                      64               DCB 00001011B               ;2
+854B 03                      65               DCB 00000011B               ;3
+854C 0D                      66               DCB 00001101B               ;4
+854D 05                      67               DCB 00000101B               ;5
+854E 09                      68               DCB 00001001B               ;6
+854F 01                      69               DCB 00000001B               ;7
+8550 0E                      70               DCB 00001110B               ;8
+8551 06                      71               DCB 00000110B               ;9
+8552 0A                      72               DCB 00001010B               ;A
+8553 02                      73               DCB 00000010B               ;B
+8554 0C                      74               DCB 00001100B               ;C
+8555 04                      75               DCB 00000100B               ;D
+8556 08                      76               DCB 00001000B               ;E
+8557 00                      77               DCB 00000000B               ;F
+                             78   
+9000                         79                   CSEG AT 9000H
+                             80   
+9000 A1000044                81   ALKU:           LD INDEX,#0
+9004 A1A00F48                82                   LD DELAY, #4000
+9008 A1000046                83                   LD INDEX2, #0
+900C B1014D                  84                   LDB TV, #1
+900F C746404D                85   LOOP:           STB TV, MERKKI[INDEX2]
+9013 0746                    86                   INC INDEX2
+9015 89030046                87                   CMP INDEX2, #3
+9019 D7F4                    88                   JNE LOOP
+901B B13806                  89                   LDB HSO_COM, #00111000B
+901E 44480A04                90                   ADD HSO_TIME,TIMER1,DELAY
+9022 912008                  91                   ORB INT_MASK, #00100000B
+9025 27FE                    92                   SJMP $
+                             93   
+9027                         94                   END
+MCS-96 MACRO ASSEMBLER    LAB21B                                                             11/20/98 11:46:06 PAGE    3
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ALKU. . . . . . . . . . . . . .   9000H   CODE ABS ENTRY
+ARVO. . . . . . . . . . . . . .   004CH   REG ABS BYTE
+DELAY . . . . . . . . . . . . .   0048H   REG ABS WORD
+HSO_COM . . . . . . . . . . . .   0006H   NULL ABS BYTE
+HSO_TIME. . . . . . . . . . . .   0004H   NULL ABS WORD
+INDEX . . . . . . . . . . . . .   0044H   REG ABS WORD
+INDEX2. . . . . . . . . . . . .   0046H   REG ABS WORD
+INT_MASK. . . . . . . . . . . .   0008H   NULL ABS BYTE
+LED . . . . . . . . . . . . . .   8548H   CODE ABS BYTE
+LEDNRO. . . . . . . . . . . . .   0043H   REG ABS BYTE
+LOOP. . . . . . . . . . . . . .   900FH   CODE ABS ENTRY
+MERKKI. . . . . . . . . . . . .   0040H   REG ABS BYTE
+NAYTTONO. . . . . . . . . . . .   8535H   CODE ABS BYTE
+SEGM. . . . . . . . . . . . . .   8538H   CODE ABS BYTE
+SEGMENT . . . . . . . . . . . .   F800H   NULL ABS BYTE
+SUBINDEX. . . . . . . . . . . .   004AH   REG ABS WORD
+SWINT . . . . . . . . . . . . .   8500H   CODE ABS ENTRY
+TIMER1. . . . . . . . . . . . .   000AH   NULL ABS WORD
+TV. . . . . . . . . . . . . . .   004DH   REG ABS BYTE
+VALINTA . . . . . . . . . . . .   F000H   NULL ABS BYTE
+VALMIS. . . . . . . . . . . . .   8533H   CODE ABS ENTRY
+
+ASSEMBLY COMPLETED,    1 ERROR(S) FOUND.

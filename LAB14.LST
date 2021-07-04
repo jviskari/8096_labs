@@ -1,0 +1,60 @@
+MCS-96 MACRO ASSEMBLER    LAB14                                                              03/17/99 19:25:52 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: LAB14.asm
+OBJECT FILE: LAB14.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;x96 LAB14.ASM Joonas Viskari 1998
+                              2   
+0040                          3           RSEG AT 0040h
+                              4   
+0040                          5   AX:     
+0040                          6   AL:     DSB 1
+0041                          7   AH:     DSB 1
+0042                          8   DST:    DSW 1
+0044                          9   SI:     DSW 1
+                             10   
+0060                         11           RSEG AT 0060h
+                             12   
+0060                         13   WTABLE: DSW 8
+                             14   
+0080                         15           RSEG AT 0080h
+                             16   
+0080                         17   BTABLE: DSB 8
+                             18   
+0900                         19           CSEG AT 900h
+                             20   
+0900 A20044                  21           LD      SI,[0]                  ;reset source index to 0
+0903 A20042                  22           LD      DST,[0]                 ;reset destination index to 0
+                             23   
+0906 A345800040              24   LOOP:   LD      AL,BTABLE[SI]
+090B 67426040                25           ADD     AX,WTABLE[DST]
+090F C3426040                26           ST      AX,WTABLE[DST]        
+0913 0742                    27           INC     DST
+0915 0742                    28           INC     DST
+0917 0744                    29           INC     SI
+0919 89080044                30           CMP     SI,#8                   ;onko SI = 8 ?
+091D D7E7                    31           JNE     LOOP                    ;jos ei hypp„„ NEXT
+091F 27FE                    32           SJMP    $                       ;lopetus
+                             33   
+0921                         34           END
+MCS-96 MACRO ASSEMBLER    LAB14                                                              03/17/99 19:25:52 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+AH. . . . . . . . . . . . . . .   0041H   REG ABS BYTE
+AL. . . . . . . . . . . . . . .   0040H   REG ABS BYTE
+AX. . . . . . . . . . . . . . .   0040H   REG ABS BYTE
+BTABLE. . . . . . . . . . . . .   0080H   REG ABS BYTE
+DST . . . . . . . . . . . . . .   0042H   REG ABS WORD
+LOOP. . . . . . . . . . . . . .   0906H   CODE ABS ENTRY
+SI. . . . . . . . . . . . . . .   0044H   REG ABS WORD
+WTABLE. . . . . . . . . . . . .   0060H   REG ABS WORD
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

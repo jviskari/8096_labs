@@ -1,0 +1,49 @@
+MCS-96 MACRO ASSEMBLER    lab13                                                              03/17/99 18:32:45 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab13.asm
+OBJECT FILE: lab13.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;x96 LAB13.ASM Joonas Viskari 1998
+                              2   
+0040                          3           RSEG AT 0040h
+                              4   
+0040                          5   INDEX:  DSW 1
+0042                          6   HELP:   DSW 1
+                              7   
+0060                          8           RSEG AT 0060h
+                              9   
+0060                         10   TABLE:  DSW 8
+                             11   
+0900                         12           CSEG AT 900h
+                             13   
+0900 A20040                  14   ADDONE: LD      INDEX,[0]               ;reset index to 0
+                             15   
+0903 A3406042                16   NEXT:   LD      HELP,TABLE[INDEX]       ;helppiin arvo TABLE[0]:sta
+0907 0742                    17           INC     HELP                    ;help++
+0909 C3406042                18           ST      HELP,TABLE[INDEX]       ;store help to register
+090D 0740                    19           INC     INDEX
+090F 0740                    20           INC     INDEX
+                             21   
+0911 89100040                22           CMP     INDEX,#16               ;onko INDEX = 16  ?
+0915 D7EC                    23           JNE     NEXT                    ;jos ei hypp„„ NEXT
+0917 27FE                    24           SJMP    $                       ;lopetus
+                             25   
+0919                         26           END
+MCS-96 MACRO ASSEMBLER    lab13                                                              03/17/99 18:32:45 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ADDONE. . . . . . . . . . . . .   0900H   CODE ABS ENTRY
+HELP. . . . . . . . . . . . . .   0042H   REG ABS WORD
+INDEX . . . . . . . . . . . . .   0040H   REG ABS WORD
+NEXT. . . . . . . . . . . . . .   0903H   CODE ABS ENTRY
+TABLE . . . . . . . . . . . . .   0060H   REG ABS WORD
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

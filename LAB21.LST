@@ -1,0 +1,115 @@
+MCS-96 MACRO ASSEMBLER    lab21                                                              12/11/98 10:32:20 PAGE    1
+
+DOS 6.22 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab21.asm
+OBJECT FILE: lab21.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+  F000                        1   VALINTA         EQU 0F000H:BYTE
+  F800                        2   SEGMENTIT       EQU 0F800H:BYTE
+                              3   
+0040                          4                   RSEG AT 40H
+                              5   
+0040                          6   MERKKI:         DSB 3
+0043                          7   LEDNRO:         DSB 1
+                              8   
+0044                          9                   RSEG AT 44H
+                             10   
+0044                         11   INDEX:          DSW 1
+0046                         12   SUBINDEX:       DSW 1
+0048                         13   LEDNROW:        DSW 1
+004A                         14   ARVO:           DSB 1
+004B                         15   DELAY:          DSB 1 
+                             16   
+8500                         17                   CSEG AT 8500H
+                             18   
+8500 DFBF7F                  19   NAYTTONO:       DCB 11011111B, 10111111B, 01111111B
+                             20   
+                             21   
+8503 3F                      22   SEGM:       DCB 00111111B               ;0
+8504 06                      23               DCB 00000110B               ;1
+8505 5B                      24               DCB 01011011B               ;2
+8506 4F                      25               DCB 01001111B               ;3
+8507 66                      26               DCB 01100110B               ;4
+8508 6D                      27               DCB 01101101B               ;5
+8509 7D                      28               DCB 01111101B               ;6
+850A 07                      29               DCB 00000111B               ;7
+850B 7F                      30               DCB 01111111B               ;8
+850C 6F                      31               DCB 01101111B               ;9
+850D 77                      32               DCB 01110111B               ;A
+850E 7C                      33               DCB 01111100B               ;B
+850F 39                      34               DCB 00111001B               ;C
+8510 5E                      35               DCB 01011110B               ;D
+8511 79                      36               DCB 01111001B               ;E
+8512 71                      37               DCB 01110001B               ;F
+                             38   
+8513 0F                      39   LED:        DCB 00001111B               ;0
+8514 07                      40               DCB 00000111B               ;1
+8515 0B                      41               DCB 00001011B               ;2
+8516 03                      42               DCB 00000011B               ;3
+8517 0D                      43               DCB 00001101B               ;4
+8518 05                      44               DCB 00000101B               ;5
+8519 09                      45               DCB 00001001B               ;6
+851A 01                      46               DCB 00000001B               ;7
+851B 0E                      47               DCB 00001110B               ;8
+851C 06                      48               DCB 00000110B               ;9
+851D 0A                      49               DCB 00001010B               ;A
+851E 02                      50               DCB 00000010B               ;B
+851F 0C                      51               DCB 00001100B               ;C
+MCS-96 MACRO ASSEMBLER    lab21                                                              12/11/98 10:32:20 PAGE    2
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+8520 04                      52               DCB 00000100B               ;D
+8521 08                      53               DCB 00001000B               ;E
+8522 00                      54               DCB 00000000B               ;F
+                             55   
+9000                         56                   CSEG AT 9000H
+                             57   
+9000 A00044                  58   ALKU:           LD      INDEX,0
+9003 B1FF4B                  59                   LDB     DELAY, #0FFh
+9006 710F43                  60                   ANDB    LEDNRO,#0FH                ;MASKATAAN 4 YLINTŽ BITTIŽ
+                             61   
+9009 AF004348                62   LOOP_SEG:       LDBZE   LEDNROW,LEDNRO[0]          ;muunnetaan wordiksi
+900D B34500854A              63                   LDB     ARVO,NAYTTONO[INDEX]       ;n„yt”n valinta
+9012 974913854A              64                   XORB    ARVO,LED[LEDNROW]          ;
+9017 C70100F04A              65                   STB     ARVO,VALINTA[0]            ;
+901C AF444046                66                   LDBZE   SUBINDEX, MERKKI[INDEX]    ;muunnetaan wordiksi
+9020 B34703854A              67                   LDB     ARVO,SEGM[SUBINDEX]        ;
+9025 C70100F84A              68                   STB     ARVO,SEGMENTIT[0]          ;
+                             69                   
+902A 0744                    70                   INC     INDEX                      ;
+902C 89030044                71                   CMP     INDEX, #3                  ;
+9030 E04BFD                  72   D_LAY:          DJNZ    DELAY, D_LAY               ;viive = 0FFh                
+9033 D7D4                    73                   JNE     LOOP_SEG                   ;toistetaan jos INDEX!=3
+                             74                   
+9035 27C9                    75                   SJMP    ALKU                       ;palataan alkuun
+                             76                   
+                             77                   
+9037 27FE                    78                   SJMP    $
+9039                         79                   END
+MCS-96 MACRO ASSEMBLER    lab21                                                              12/11/98 10:32:20 PAGE    3
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ALKU. . . . . . . . . . . . . .   9000H   CODE ABS ENTRY
+ARVO. . . . . . . . . . . . . .   004AH   REG ABS BYTE
+D_LAY . . . . . . . . . . . . .   9030H   CODE ABS ENTRY
+DELAY . . . . . . . . . . . . .   004BH   REG ABS BYTE
+INDEX . . . . . . . . . . . . .   0044H   REG ABS WORD
+LED . . . . . . . . . . . . . .   8513H   CODE ABS BYTE
+LEDNRO. . . . . . . . . . . . .   0043H   REG ABS BYTE
+LEDNROW . . . . . . . . . . . .   0048H   REG ABS WORD
+LOOP_SEG. . . . . . . . . . . .   9009H   CODE ABS ENTRY
+MERKKI. . . . . . . . . . . . .   0040H   REG ABS BYTE
+NAYTTONO. . . . . . . . . . . .   8500H   CODE ABS BYTE
+SEGM. . . . . . . . . . . . . .   8503H   CODE ABS BYTE
+SEGMENTIT . . . . . . . . . . .   F800H   NULL ABS BYTE
+SUBINDEX. . . . . . . . . . . .   0046H   REG ABS WORD
+VALINTA . . . . . . . . . . . .   F000H   NULL ABS BYTE
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

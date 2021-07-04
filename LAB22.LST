@@ -1,0 +1,109 @@
+MCS-96 MACRO ASSEMBLER    LAB22                                                              11/20/98 10:54:52 PAGE    1
+
+DOS 6.22 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: LAB22.asm
+OBJECT FILE: LAB22.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+  0004                        1   HSO_TIME    EQU 04H:WORD
+  0006                        2   HSO_COM     EQU 06H:BYTE
+  0008                        3   INT_MASK    EQU 08H:BYTE
+  000A                        4   TIMER1      EQU 0AH:WORD
+                              5   
+  0F00                        6   VALINTA     EQU 0F00H:BYTE
+  F800                        7   SEGMENTIT   EQU 0F800H:BYTE
+                              8   
+0040                          9               RSEG AT 40H
+                             10                   
+0040                         11   MERKKI:     DSB 3                       ;tulostettavat merkit
+                             12   
+0044                         13               RSEG AT 44H
+                             14   
+0044                         15   INDEKSI:    DSW 1
+0046                         16   VIIVE:      DSW 1
+0048                         17   APUIND:     DSW 1
+004A                         18   ARVO:       DSB 1
+                             19   
+8500                         20               CSEG AT 8500H               ;sw-timer keskeytys
+                             21   
+8500 F2                      22   SWINT:      PUSHF
+8501 B13806                  23               LDB HSO_COM, #00111000B      ;aiheuttaa seuraavan keskeytyksen
+8504 44460A04                24               ADD HSO_TIME,TIMER1,VIIVE    ;sopivan ajan j„lkeen
+8508 B3452D854A              25               LDB ARVO,NAYTTONO[INDEKSI]   ;
+850D C701000F4A              26               STB ARVO,VALINTA[0]          ;
+8512 AF444048                27               LDBZE APUIND,MERKKI[INDEKSI] ;
+8516 B34930854A              28               LDB ARVO,SEGM[APUIND]        ;
+851B C70100F84A              29               STB ARVO,SEGMENTIT[0]        ;
+8520 0744                    30               INC INDEKSI                  ;
+8522 89030044                31               CMP INDEKSI, #3              ;
+8526 D703                    32               JNE VALMIS                   ;
+8528 A00044                  33               LD  INDEKSI,0                ;
+852B F3                      34   VALMIS:     POPF                         ;
+852C F0                      35               RET                         ;
+                             36   
+                             37               ;nayttojen ja ledien valinta
+852D DFBF7F                  38   NAYTTONO:   DCB 11011111B, 10111111B, 01111111B
+                             39   
+                             40               ;numeroiden ulkonako
+8530 3F                      41   SEGM:       DCB 00111111B               ;0
+8531 06                      42               DCB 00000110B               ;1
+8532 5B                      43               DCB 01011011B               ;2
+8533 4F                      44               DCB 01001111B               ;3
+8534 66                      45               DCB 01100110B               ;4
+8535 6D                      46               DCB 01101101B               ;5
+8536 7D                      47               DCB 01111101B               ;6
+8537 07                      48               DCB 00000111B               ;7
+8538 7F                      49               DCB 01111111B               ;8
+8539 6F                      50               DCB 01101111B               ;9
+853A 77                      51               DCB 01110111B               ;A
+MCS-96 MACRO ASSEMBLER    LAB22                                                              11/20/98 10:54:52 PAGE    2
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+853B 7C                      52               DCB 01111100B               ;B
+853C 39                      53               DCB 00111001B               ;C
+853D 5E                      54               DCB 01011110B               ;D
+853E 79                      55               DCB 01111001B               ;E
+853F 71                      56               DCB 01110001B               ;F
+                             57   
+9000                         58               CSEG AT 9000H
+                             59   
+9000 A00044                  60   ALKU:       LD INDEKSI, 0               ;
+9003 A1E80346                61               LD VIIVE,#1000              ;
+9007 B13806                  62               LDB HSO_COM, #00111000B     ;sw-timer 0, timer 1
+900A 44460A04                63               ADD HSO_TIME, TIMER1,VIIVE  ;
+900E 912008                  64               ORB INT_MASK, #00100000B    ;
+9011 27FE                    65               SJMP $
+                             66   
+9013                         67               END
+                                  
+                                  
+                                  
+                                  
+                                  
+MCS-96 MACRO ASSEMBLER    LAB22                                                              11/20/98 10:54:52 PAGE    3
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ALKU. . . . . . . . . . . . . .   9000H   CODE ABS ENTRY
+APUIND. . . . . . . . . . . . .   0048H   REG ABS WORD
+ARVO. . . . . . . . . . . . . .   004AH   REG ABS BYTE
+HSO_COM . . . . . . . . . . . .   0006H   NULL ABS BYTE
+HSO_TIME. . . . . . . . . . . .   0004H   NULL ABS WORD
+INDEKSI . . . . . . . . . . . .   0044H   REG ABS WORD
+INT_MASK. . . . . . . . . . . .   0008H   NULL ABS BYTE
+MERKKI. . . . . . . . . . . . .   0040H   REG ABS BYTE
+NAYTTONO. . . . . . . . . . . .   852DH   CODE ABS BYTE
+SEGM. . . . . . . . . . . . . .   8530H   CODE ABS BYTE
+SEGMENTIT . . . . . . . . . . .   F800H   NULL ABS BYTE
+SWINT . . . . . . . . . . . . .   8500H   CODE ABS ENTRY
+TIMER1. . . . . . . . . . . . .   000AH   NULL ABS WORD
+VALINTA . . . . . . . . . . . .   0F00H   NULL ABS BYTE
+VALMIS. . . . . . . . . . . . .   852BH   CODE ABS ENTRY
+VIIVE . . . . . . . . . . . . .   0046H   REG ABS WORD
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

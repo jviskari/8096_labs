@@ -1,0 +1,41 @@
+MCS-96 MACRO ASSEMBLER    lab15                                                              03/17/99 19:39:10 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab15.asm
+OBJECT FILE: lab15.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;x96 LAB15.ASM Joonas Viskari 1998
+                              2   
+  A000                        3   ADDR    EQU     0A000H
+                              4   
+0040                          5           RSEG AT 0040H
+                              6   
+0040                          7   AX:     
+0040                          8   AL:     DSB 1     
+0041                          9   AH:     DSB 1
+                             10   
+9000                         11           CSEG AT 9000H
+                             12   
+9000 B02340                  13           LDB     AL,23H                  ;byterekisteri 23 apurekisteriin
+9003 670100A040              14           ADD     AX,ADDR[0]              ;AX=[23]+[0A000H]
+9008 C30100A040              15           ST      AX,ADDR[0]              ;AX->0A000H
+                             16           
+900D 27FE                    17           SJMP    $                       ;lopetus
+                             18   
+900F                         19           END
+MCS-96 MACRO ASSEMBLER    lab15                                                              03/17/99 19:39:10 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ADDR. . . . . . . . . . . . . .   A000H   NULL ABS
+AH. . . . . . . . . . . . . . .   0041H   REG ABS BYTE
+AL. . . . . . . . . . . . . . .   0040H   REG ABS BYTE
+AX. . . . . . . . . . . . . . .   0040H   REG ABS BYTE
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

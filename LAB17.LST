@@ -1,0 +1,48 @@
+MCS-96 MACRO ASSEMBLER    lab17                                                              03/17/99 19:49:14 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab17.asm
+OBJECT FILE: lab17.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;x96 LAB17.ASM Joonas Viskari 1998
+                              2   
+  A000                        3   ADDR    EQU     0A000H
+                              4   
+0080                          5           RSEG AT 0080h
+                              6   
+0080                          7   AX:     
+0080                          8   AL:     DSB 1
+0081                          9   AH:     DSB 1
+0082                         10   SI:     DSW 1
+                             11   
+                             12   
+9000                         13           CSEG AT 9000h
+                             14   
+9000 A20082                  15           LD      SI,[0]                  ;reset source index to 0
+                             16   
+9003 778300A080              17   LOOP:   ADDB    AL,ADDR[SI]
+9008 B60081                  18           ADDCB   AH,[0]                  ;otetaan muistinumero huomioon
+900B 0782                    19           INC     SI
+900D 89FF0082                20           CMP     SI,#0FFH                ;onko SI = 0FFH ?
+9011 D7F0                    21           JNE     LOOP                    ;jos ei hypp„„ NEXT
+9013 27FE                    22           SJMP    $                       ;lopetus
+                             23   
+9015                         24           END
+MCS-96 MACRO ASSEMBLER    lab17                                                              03/17/99 19:49:14 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+ADDR. . . . . . . . . . . . . .   A000H   NULL ABS
+AH. . . . . . . . . . . . . . .   0081H   REG ABS BYTE
+AL. . . . . . . . . . . . . . .   0080H   REG ABS BYTE
+AX. . . . . . . . . . . . . . .   0080H   REG ABS BYTE
+LOOP. . . . . . . . . . . . . .   9003H   CODE ABS ENTRY
+SI. . . . . . . . . . . . . . .   0082H   REG ABS WORD
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

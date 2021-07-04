@@ -1,0 +1,41 @@
+MCS-96 MACRO ASSEMBLER    lab11                                                              03/17/99 18:33:00 PAGE    1
+
+DOS 7.10 (046-N) MCS-96 MACRO ASSEMBLER, V1.3
+
+SOURCE FILE: lab11.asm
+OBJECT FILE: lab11.obj
+CONTROLS SPECIFIED IN INVOCATION COMMAND: <none>
+
+LOC  OBJECT                STMT        SOURCE STATEMENT
+                              1   ;X96 LAB11.ASM (C) Joonas Viskari 1998
+                              2   
+0022                          3           RSEG AT 22h
+                              4   
+0022                          5   SRC:    DSW 1
+                              6   
+0066                          7           RSEG AT 66h
+                              8   
+0066                          9   DST1:   DSW 1
+0068                         10   DST2:   DSW 1
+                             11          
+                             12           
+                             13           
+9000                         14           CSEG AT 9000h           ;Ohjelmaa alkaa osoitteesta 9000h
+                             15           
+9000 642266                  16           ADD      DST1,SRC       ;lis„t„„n rekisteriin 66h 22h      
+9003 642268                  17           ADD      DST2,SRC       ;lis„t„„n rekisteriin 68h 22h       
+                             18   
+9006 27FE                    19           SJMP     $              ;hallittu lopetus
+9008                         20           END
+MCS-96 MACRO ASSEMBLER    lab11                                                              03/17/99 18:33:00 PAGE    2
+
+SYMBOL TABLE LISTING
+--------------------
+
+ N A M E                          VALUE    ATTRIBUTES
+
+DST1. . . . . . . . . . . . . .   0066H   REG ABS WORD
+DST2. . . . . . . . . . . . . .   0068H   REG ABS WORD
+SRC . . . . . . . . . . . . . .   0022H   REG ABS WORD
+
+ASSEMBLY COMPLETED,   NO ERROR(S) FOUND.

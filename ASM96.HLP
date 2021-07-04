@@ -1,0 +1,27 @@
+здддддддддддддддддддддддддддддддддддддбддддддддддддддбдддддддддддддддддддддддд©
+Ё           Control Name              Ё Abbreviation Ё        Default         Ё
+фмммммммммммммммммммммммммммммммммммммоммммммммммммммомммммммммммммммммммммммм╣
+Ё                            Listing Controls                                 Ё
+цдддддддддддддддддддддддддддддддддддддбддддддддддддддбдддддддддддддддддддддддд╢
+Ё [NO]ERRORPRINT [ ( pathname ) ]     Ё [NO]EP       Ё NOEP                   Ё
+Ё PAGELENGTH ( number )               Ё PL           Ё PL(60)                 Ё
+Ё PAGEWIDTH ( number )                Ё PW           Ё PW(120)                Ё
+Ё PRINT [ ( pathname ) ] | NOPRINT    Ё [NO]PR       Ё PR(source.LST)         Ё
+Ё [NO]SYMBOLS                         Ё [NO]SB       Ё SB                     Ё
+Ё [NO]XREF                            Ё [NO]XR       Ё NOXR                   Ё
+цдддддддддддддддддддддддддддддддддддддаддддддддддддддадддддддддддддддддддддддд╢
+Ё                             Object Controls                                 Ё
+цдддддддддддддддддддддддддддддддддддддбддддддддддддддбдддддддддддддддддддддддд╢
+Ё [NO]DEBUG                           Ё [NO]DB       Ё NODB                   Ё
+Ё [NO]OBJECT [ ( pathname ) ]         Ё [NO]OJ       Ё OJ(source.OBJ)         Ё
+цдддддддддддддддддддддддддддддддддддддаддддддддддддддадддддддддддддддддддддддд╢
+Ё                            General Controls                                 Ё
+цдддддддддддддддддддддддддддддддддддддбддддддддддддддбдддддддддддддддддддддддд╢
+Ё [NO]COND                            Ё [NO]CO       Ё CO                     Ё
+Ё EJECT                               Ё EJ           Ё n/a                    Ё
+Ё [NO]GEN                             Ё [NO]GE       Ё NOGE                   Ё
+Ё INCLUDE( pathname )                 Ё IC           Ё n/a                    Ё
+Ё [NO]LIST                            Ё [NO]LI       Ё LI                     Ё
+Ё SAVE | RESTORE                      Ё SA | RS      Ё n/a                    Ё
+Ё TITLE("string")                     Ё TT           Ё TT(modulename)         Ё
+юдддддддддддддддддддддддддддддддддддддаддддддддддддддадддддддддддддддддддддддды
